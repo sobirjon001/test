@@ -9,7 +9,7 @@ public class Main {
     // Creating array of students
     Student[] studentsArr = Generator.createStudents(10);
 
-    //Printing all studets
+    //Printing all students
     tableHead();
     for (Student each : studentsArr) {
       System.out.println(each);
