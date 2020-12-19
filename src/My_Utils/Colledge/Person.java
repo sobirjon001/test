@@ -3,9 +3,12 @@ package My_Utils.Colledge;
 import java.util.Random;
 
 public class Person {
+  // ***************** instance variables
   public String firstName, lastName;
   public char gender;
+  // ***************** END of instance variables
 
+  // ******* Private variable for inside class use only
   private static final String[] fNameFeedMale = {
           "Aiden", "Luke", "Alexander", "William", "Anthony", "David", "Austin", "Ryan",
           "Barrett", "Daniel", "Bennett", "Gregory", "Benjamin", "Clay", "Brady", "Jonathan",
@@ -27,10 +30,11 @@ public class Person {
           "Beam", "Dash", "Duke", "Fleet", "Jian", "Moses", "Pierce", "Remington", "Sharp", "Singh",
           "Stallard", "West", "Abernathy", "Cornelius", "Crawford", "Cunningham", "Driscol", "Ellis"
   };
-
   private static final Random r = new Random();
   private static int count = 0;
+  // ******* END of Private variable for inside class use only
 
+  // **************** constructor
   public Person() {
     gender = ( r.nextBoolean() ? 'F' : 'M' );
     firstName = (
@@ -39,10 +43,13 @@ public class Person {
     );
     lastName = lastNameFeed[ count ];
 
+    // cycles count within lastNameFeed indexes
+    // everytime when constructor called
     if ( count == lastNameFeed.length - 1 ) {
       count = 0;
     } else {
       count++;
     }
   }
+  // **************** END of constructor
 }
