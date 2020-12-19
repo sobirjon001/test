@@ -15,7 +15,7 @@ public class Teacher extends Person{
     super();
     id = 25000 + (++count);
     dob = LocalDate.of(
-            now.getYear() - r.nextInt(20) - 20 , r.nextInt(12) + 1, r.nextInt(29)
+            now.getYear() - r.nextInt(20) - 30 , r.nextInt(12) + 1, r.nextInt(29)
     );
   }
 }
