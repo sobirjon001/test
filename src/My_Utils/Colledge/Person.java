@@ -1,10 +1,11 @@
 package My_Utils.Colledge;
 
+import java.time.LocalDate;
 import java.util.Random;
 
 public class Person {
   // ***************** instance variables
-  public String firstName, lastName;
+  public String firstName, lastName, citizenship;
   public char gender;
   // ***************** END of instance variables
 
@@ -51,5 +52,26 @@ public class Person {
       count++;
     }
   }
+
+  // Constructor overloading
+  public Person(String citizenship){
+    this();
+    this.citizenship = citizenship;
+  }
   // **************** END of constructor
+
+  // ************** Instance methods
+  public void eat(String food){
+    System.out.println(firstName + " is eating " + food);
+  }
+  // ************** END of Instance methods
+
+  // ************ Static/Utility methods
+  public static int calcAge(LocalDate dob){
+    int result;
+    LocalDate now = LocalDate.now();
+    result = now.getYear() - dob.getYear();
+    return result;
+  }
+  // ************ END of Static/Utility methods
 }
