@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Random;
 
-public class Student extends Person {
+public final class Student extends Person {
 
   // ******** Instance variables
   public int id, gradeYear;
