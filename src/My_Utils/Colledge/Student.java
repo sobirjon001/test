@@ -18,7 +18,7 @@ public class Student extends Person {
           "Computer Technology", "Law ang Criminal Justice"
   };
   private static final Random r = new Random();
-  private static final LocalDate now = LocalDate.now();
+  private static LocalDate now;
   private static final DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MMM-dd");
   private static int count = 0;
   // ************ END of Private static variables for current class use only
@@ -27,11 +27,12 @@ public class Student extends Person {
   public Student() {
     super(); // calls Person constructor
     id = 1000 + (++count);
+    now = LocalDate.now();
     dob = LocalDate.of(
-            now.getYear() - r.nextInt(20) - 20, r.nextInt(12) + 1, r.nextInt(28) + 1
+            now.getYear() - 20 - r.nextInt(20), r.nextInt(12) + 1, r.nextInt(28) + 1
     );
     admissionYear = LocalDate.of(
-            now.getYear() - (r.nextInt(4) + 1), 9, 1
+            now.getYear() - (r.nextInt(5) + 1), 9, 1
     );
     gradeYear = now.getYear() - admissionYear.getYear();
     switch (gradeYear) {
@@ -57,6 +58,7 @@ public class Student extends Person {
   public Student(String citizenship) {
     super(citizenship); // calls Person constructor
     id = 1000 + (++count);
+    now = LocalDate.now();
     dob = LocalDate.of(
             now.getYear() - r.nextInt(20) - 20, r.nextInt(12) + 1, r.nextInt(28) + 1
     );
