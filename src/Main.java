@@ -1,16 +1,20 @@
+import My_Utils.Colledge.Generator;
+import My_Utils.Colledge.Student;
+
 import java.util.ArrayList;
 import java.util.Arrays;
+
 
 public class Main {
   public static void main(String[] args) {
     // Creating array of students
-//    Student[] studentsArr = Generator.createStudents(10);
+   Student[] studentsArr = Generator.createStudents(10);
 
     //Printing all students
-//    tableHead();
-//    for (Student each : studentsArr) {
-//      System.out.println(each);
-//    }
+    tableHead();
+    for (Student each : studentsArr) {
+      System.out.println(each);
+    }
 
     // Create ArrayList of Students
 //    ArrayList<Student> studentsList = new ArrayList<>(Arrays.asList(studentsArr));
