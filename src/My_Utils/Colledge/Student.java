@@ -3,6 +3,7 @@ package My_Utils.Colledge;
 import My_Utils.Person;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 import java.util.Random;
 
 public final class Student extends Person {
@@ -26,13 +27,23 @@ public final class Student extends Person {
   // ************************  Constructor *******************
   public Student() {
     super(); // calls Person constructor
+    setInfo();
+  }
+
+  // Constructor overload
+  public Student(String citizenship) {
+    super(citizenship); // calls Person constructor
+    setInfo();
+  }
+
+  private void setInfo(){
     id = 1000 + (++count);
     now = LocalDate.now();
     dob = LocalDate.of(
-            now.getYear() - 20 - r.nextInt(20), r.nextInt(12) + 1, r.nextInt(28) + 1
+            now.getYear() - r.nextInt(20) - 20, r.nextInt(12) + 1, r.nextInt(28) + 1
     );
     admissionYear = LocalDate.of(
-            now.getYear() - (r.nextInt(5) + 1), 9, 1
+            now.getYear() - (r.nextInt(4) + 1), 9, 1
     );
     gradeYear = now.getYear() - admissionYear.getYear();
     switch (gradeYear) {
@@ -53,7 +64,7 @@ public final class Student extends Person {
     } // end of switch
     faculty = facultyFeed[r.nextInt(facultyFeed.length)];
   }
-
+  // ****************** END of Constructor **********************
 
   // ************* toString method *******************
   @Override
@@ -79,4 +90,47 @@ public final class Student extends Person {
     }
     return result;
   }
+
+  // Checks if String contains any word from another String
+  private static boolean ifContains(String sentence1, String sentence2){
+    boolean result = false;
+    sentence1 = sentence1.toLowerCase();
+    sentence2 = sentence2.toLowerCase();
+    for (String word : sentence1.split(" ")){
+      if(sentence2.contains(word)){
+        result = true;
+        break;
+      }
+    }
+    return result;
+  }
+  // *********** END of Supplementary private method for inside class use only
+
+
+  // *********** override methods
+  @Override
+  public void eat(String food){
+    System.out.println(firstName + " is eating " + food + " in campus cafeteria");
+  }
+  // *********** END of override methods
+
+  // ************ Static/Utility methods
+  public static String findCampus(String faculty) {
+    String result;
+    if (ifContains(faculty, facultyFeed[0])) {
+      result = "18 Columbus Avenue campus of Art";
+    } else if (ifContains(faculty, facultyFeed[1])) {
+      result = "2020 Houston Street campus of Computer technology";
+    } else if (ifContains(faculty, facultyFeed[2])) {
+      result = "125 1st Ave campus of School of Medicine";
+    } else if (ifContains(faculty, facultyFeed[3])) {
+      result = "2020 Houston Street campus of Computer technology";
+    } else if (ifContains(faculty, facultyFeed[4])) {
+      result = "4516 Cort Street campus of Law ang Criminal Justice";
+    } else {
+      result = "We don't have campus for this faculty";
+    }
+    return result;
+  }
+  // ************ END of Static/Utility methods
 }
