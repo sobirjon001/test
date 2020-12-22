@@ -1,4 +1,4 @@
-package My_Utils.Colledge;
+package My_Utils;
 
 import java.time.LocalDate;
 import java.util.Random;
@@ -40,7 +40,7 @@ public class Person {
     gender = ( r.nextBoolean() ? 'F' : 'M' );
     firstName = (
             gender == 'F' ? fNamesFeedFemale[ r.nextInt( fNamesFeedFemale.length ) ]
-            : fNameFeedMale[ r.nextInt( fNameFeedMale.length ) ]
+                    : fNameFeedMale[ r.nextInt( fNameFeedMale.length ) ]
     );
     lastName = lastNameFeed[ count ];
 
@@ -74,4 +74,5 @@ public class Person {
     return result;
   }
   // ************ END of Static/Utility methods
+
 }

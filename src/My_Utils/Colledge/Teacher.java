@@ -3,7 +3,7 @@ package My_Utils.Colledge;
 import java.time.LocalDate;
 import java.util.Random;
 
-public final class Teacher extends Person{
+public class Teacher extends Person{
   public int id;
   public LocalDate dob;
 
