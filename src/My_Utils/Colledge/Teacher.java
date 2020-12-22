@@ -1,9 +1,11 @@
 package My_Utils.Colledge;
 
+import My_Utils.Person;
+
 import java.time.LocalDate;
 import java.util.Random;
 
-public class Teacher extends Person{
+public class Teacher extends Person {
   public int id;
   public LocalDate dob;
 
